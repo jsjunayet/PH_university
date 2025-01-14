@@ -1,6 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import { adminRoutes } from "./admin.router";
+import { adminpaths} from "./admin.router";
+import { routerGenerator } from "../utils/routerGenerator";
+import { Studentpaths } from "./student.route";
+import Login from '../pages/About';
 
 const router = createBrowserRouter([
     {
@@ -10,21 +13,21 @@ const router = createBrowserRouter([
     {
         path:"/admin",
         element: <App/>,
-        children:adminRoutes
+        children: routerGenerator(adminpaths)
     },
     {
         path:"/faculty",
         element: <App/>,
-        children:adminRoutes
+        children:routerGenerator(adminpaths)
     },
     {
         path:"/student",
         element: <App/>,
-        children:adminRoutes
+        children:routerGenerator(Studentpaths)
     },
     {
-        path:"/",
-        element: <App/>,
+        path:"/login",
+        element: <Login/>,
     },
 ])
 export default router
