@@ -3,12 +3,14 @@ import { Layout } from 'antd';
 
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import { useGetAcademicSemesterQuery } from '../../redux/features/academicSemester/academicSemesterApi';
 
 
 const { Header, Content, Footer, } = Layout;
 
 const MainLayout = () => {
- 
+  const { data}=useGetAcademicSemesterQuery(undefined)
+  console.log(data);
     return (
         <Layout>
        <Sidebar/>
